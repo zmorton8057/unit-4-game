@@ -24,6 +24,7 @@ var resetVariables = function(){
   crystal4 = randomNumber(1,9);
 }
 
+
 ///Prints wins and loss counter to the DOM
 $('#wins').text("Wins: " + wins)
 $('#losses').text("Losses: " + losses)
@@ -46,6 +47,8 @@ console.log(scoreToGuess)
 
 
   // Assign each of the values to a button, logs the value of the crystal to currentScore returns new value of currentScore
+  ///// if /////////////your score matches the current score to guess then return win, add win to wins variable, reset variables
+  /////else if////////// return loss, add to losses variable, reset variables
 $('#crystal1').click(function(){
    currentScore = (crystal1 + currentScore);
     $('#yourScore').text("Total: "+ currentScore);  
@@ -98,19 +101,14 @@ $('#crystal4').click(function(){
   currentScore = (crystal4 + currentScore);
    $('#yourScore').text("Total: "+ currentScore); 
    if(currentScore === scoreToGuess){
-     alert("You Win")
+    
      wins++
      $('#wins').text("Wins: " + wins)
      resetVariables()
    }  else if(currentScore > scoreToGuess){
-     alert("You Lose")
+    
      losses++
      $('#losses').text("Losses: " + losses)
      resetVariables()
    }    
 });
-
-
-
-
-///// if your score matches the current score to guess then return win, add win to wins variable/else return loss add to losses variable
